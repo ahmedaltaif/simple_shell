@@ -4,19 +4,19 @@
  * @argv: Pointer to an array of strings
  * Return: A pointer to the string to use with execve
  * @path_string: Pointer to the path string
- * @path_duplicate: Duplicate pointer of the path string
+ * @path_dup: Duplicate pointer of the path string
  */
-char *get_executable_path(char **argv, char *path_string, char *path_duplicate)
+char *get_executable_path(char **argv, char *path_string, char *path_dup)
 {
 	char *token, *executable_path = NULL, *comparison_path = NULL;
 	static char temporary_buffer[256];
 	int token_count = 0, path_found_flag = 0, index = 0, token_length = 0;
 	struct stat path_stat;
 
-	path_duplicate = NULL;
-	path_duplicate = _strdup(path_string);
-	token_count = countPathElements(path_duplicate);
-	token = strtok(path_duplicate, ": =");
+	path_dup = NULL;
+	path_dup = _strdup(path_string);
+	token_count = countPathElements(path_dup);
+	token = strtok(path_dup, ": =");
 
 	while (token != NULL)
 	{
@@ -46,7 +46,7 @@ char *get_executable_path(char **argv, char *path_string, char *path_duplicate)
 	if (path_found_flag == 0)
 		executable_path = argv[0];
 
-	free(path_duplicate);
+	free(path_dup);
 	return (executable_path);
 }
 /**

@@ -25,7 +25,7 @@ int _strspl(char *string);
 int _strlen(char *str);
 char *_strcat(char *dest, char *con);
 char **tokenize_command(char *buffer);
-char *get_executable_path(char **argv, char *path_string, char *path_duplicate);
+char *get_executable_path(char **argv, char *path_string, char *path_dup);
 int comparePathWithEnvVar(const char *pathString, const char *envVarString);
 int countPathElements(char *pathString);
 char *buildCombinedPath(char *resultBuffer, char **arrayElement, char *token);
