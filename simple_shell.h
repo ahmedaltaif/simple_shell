@@ -32,6 +32,7 @@ char *buildCombinedPath(char *resultBuffer, char **arrayElement, char *token);
 int s_env(void);
 char *_memsete(char *ptr, char val, unsigned int num);
 int _builtin(char **argv, char *buffer, int logout);
+void changeDirectory(char *path);
 void _puts(char *str);
 int _putchar(char c);
 

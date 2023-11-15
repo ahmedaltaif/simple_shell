@@ -1,5 +1,4 @@
 #include "simple_shell.h"
-
 /**
  * get_executable_path - Get the executable path for execve
  * @argv: Pointer to an array of strings
@@ -7,10 +6,9 @@
  * @path_string: Pointer to the path string
  * @path_duplicate: Duplicate pointer of the path string
  */
-
 char *get_executable_path(char **argv, char *path_string, char *path_duplicate)
 {
-	char *token, *executable_path = NULL, *comparison_path= NULL;
+	char *token, *executable_path = NULL, *comparison_path = NULL;
 	static char temporary_buffer[256];
 	int token_count = 0, path_found_flag = 0, index = 0, token_length = 0;
 	struct stat path_stat;
@@ -29,7 +27,6 @@ char *get_executable_path(char **argv, char *path_string, char *path_duplicate)
 			path_found_flag = 1;
 			break;
 		}
-
 		if (index < token_count - 2)
 		{
 			token_length = _strlen(token);
@@ -46,23 +43,18 @@ char *get_executable_path(char **argv, char *path_string, char *path_duplicate)
 		index++;
 		token = strtok(NULL, ":");
 	}
-
 	if (path_found_flag == 0)
 		executable_path = argv[0];
 
 	free(path_duplicate);
-	return executable_path;
+	return (executable_path);
 }
-
-
-
 /**
  * comparePathWithEnvVar - a function that compares path with environ
  * @pathString: pointer to environ strin
  * Return: 0 (success)
  * @envVarString: pointer path strin
  */
-
 int comparePathWithEnvVar(const char *pathString, const char *envVarString)
 {
 	int index;
@@ -70,10 +62,10 @@ int comparePathWithEnvVar(const char *pathString, const char *envVarString)
 	for (index = 0; envVarString[index] != '='; index++)
 	{
 		if (pathString[index] != envVarString[index])
-			return -1;
+			return (-1);
 	}
 
-	return 0;
+	return (0);
 }
 
 /**
@@ -81,7 +73,6 @@ int comparePathWithEnvVar(const char *pathString, const char *envVarString)
  * @pathString: pointer to strin
  * Return: number of path tokens
  */
-
 int countPathElements(char *pathString)
 {
 	int index, isNewElement = 1, elementCount = 0;
@@ -99,7 +90,7 @@ int countPathElements(char *pathString)
 		}
 	}
 
-	return elementCount;
+	return (elementCount);
 }
 
 /**
@@ -109,7 +100,6 @@ int countPathElements(char *pathString)
  * @token: pointer to a path token
  * Return: 0 (success)
  */
-
 char *buildCombinedPath(char *resultBuffer, char **arrayElement, char *token)
 {
 	int length = 0;
@@ -122,13 +112,6 @@ char *buildCombinedPath(char *resultBuffer, char **arrayElement, char *token)
 	resultBuffer[length - 1] = '\0';
 	return (resultBuffer);
 }
-
-/**
- * get_environ - gets path token from environ
- * @name: pointer to path strin
- * Return: pointer to path strin or NULL
- */
-
 /**
  * s_env - prints the environ
  * Return: 0 on success

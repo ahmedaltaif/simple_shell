@@ -1,8 +1,8 @@
 #include "simple_shell.h"
 
 /**
- * execute - child process to execute based on user input
- * @pathbuf: pointer 
+ * execute_command - child process to execute based on user input
+ * @pathbuf: pointer
  * @buff: pointer
  * Return: 0 on success
  * @argv: pointer of strings
