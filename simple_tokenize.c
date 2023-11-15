@@ -1,5 +1,9 @@
 #include "simple_shell.h"
-
+/**
+ * tokenize_command - creates tokens based on user string
+ * Return: pointer
+ * @buffer: pointer
+ */
 
 char **tokenize_command(char *buffer)
 {

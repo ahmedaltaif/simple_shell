@@ -1,5 +1,8 @@
 #include "simple_shell.h"
-
+/**
+ * main - entry point that runs the shell
+ * Return: 0 on success
+ */
 int main(void)
 {
 	char *prompt = "ahmed$ ";
